@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup # class
 
+# classes have attributes, methods
+
 class Countries:
 	def __init__(self, capital: str, population: int, area: float):
 		self.capital = capital
@@ -33,7 +35,7 @@ def parse_html(html: str):
 	for c in countries_html:
 		country_name_html = c.select_one("h3")
 		country_dict = {
-		"name": country_name_html.get_text().strip()
+		"name": country_name_html
 		}
 		country_list.append(country_dict)
 
