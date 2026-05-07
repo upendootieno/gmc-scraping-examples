@@ -35,7 +35,7 @@ def parse_html(html: str):
 	for c in countries_html:
 		country_name_html = c.select_one("h3")
 		country_dict = {
-		"name": country_name_html
+		"name": country_name_html.get_text()
 		}
 		country_list.append(country_dict)
 
