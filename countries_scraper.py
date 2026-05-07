@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup # class
 # classes have attributes, methods
 
 class Countries:
-	def __init__(self, capital: str, population: int, area: float):
+	def __init__(self, name: str, capital: str, population: int, area: float):
+		self.name = name
 		self.capital = capital
 		self.population = population
 		self.area = area
@@ -29,8 +30,7 @@ def parse_html(html: str):
 	# Returns a list of html elements
 
 	country_list = []
-	# We initialize an empty list to store the
-	# values we will extract from the HTML
+	# This should be a list of Country objects
 
 	for c in countries_html:
 		country_name_html = c.select_one("h3")
@@ -43,4 +43,10 @@ def parse_html(html: str):
 
 
 print(parse_html(get_countries_html()))
+
+
+
+for c in country_list:
+	print(c.name, c.population)
+
 
